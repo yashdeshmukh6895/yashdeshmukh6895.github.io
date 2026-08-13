@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Unbounded:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -27,14 +27,6 @@
     <div class="ambient-glow glow-1"></div>
     <div class="ambient-glow glow-2"></div>
 
-    <!-- Theme Switcher -->
-    <div class="theme-switcher">
-        <button class="theme-btn active" data-set="default" title="Default Theme"></button>
-        <button class="theme-btn" data-set="fire" title="Fire Theme"></button>
-        <button class="theme-btn" data-set="purple" title="Purple Theme"></button>
-        <button class="theme-btn" data-set="neon" title="Neon Theme"></button>
-    </div>
-
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container nav-container">
@@ -47,8 +39,9 @@
                 <a href="#values" class="nav-link">Values</a>
                 <a href="#offer" class="nav-link">Programs</a>
                 <a href="#team" class="nav-link">Team</a>
+                <a href="#join" class="nav-link">Join Now</a>
             </div>
-            <a href="#contact" class="btn btn-primary">Join Now</a>
+            <a href="#join" class="btn btn-primary">Join Now</a>
         </div>
     </nav>
 
@@ -70,7 +63,7 @@
                 Athletics & Fitness Sports Club
             </p>
             <div class="hero-cta fade-up" style="--delay: 0.3s">
-                <a href="#contact" class="btn btn-primary btn-large">Start Training</a>
+                <a href="#join" class="btn btn-primary btn-large">Start Training</a>
                 <a href="#story" class="btn btn-secondary btn-large">Learn More</a>
             </div>
         </div>
@@ -185,6 +178,132 @@
         </div>
     </section>
 
+    <!-- Join Now Section -->
+    <section id="join" class="section join-section">
+        <div class="container">
+            <div class="join-header text-center fade-up">
+                <div class="hero-badge join-badge">
+                    <i class="ph-fill ph-clipboard-text"></i> Secure your spot
+                </div>
+                <h2 class="section-title">Join the <span class="text-accent">Ignite</span> family</h2>
+                <p class="section-subtitle">Fill out the registration form below to enroll your athlete, share health details, and help us place them in the right training batch.</p>
+            </div>
+
+            <div class="join-grid">
+                <div class="join-info fade-up">
+                    <div class="join-card">
+                        <h3>What the form collects</h3>
+                        <ul class="join-points">
+                            <li>Full athlete details and date of birth</li>
+                            <li>Gender, residence, and guardian contact information</li>
+                            <li>Preferred track and field events</li>
+                            <li>Medical conditions or injuries, if any</li>
+                            <li>Guardian consent and training fee acknowledgment</li>
+                        </ul>
+                    </div>
+                    <div class="join-card join-note">
+                        <h3>Before you submit</h3>
+                        <p>Please keep the athlete's basic details and WhatsApp number handy so the registration can be completed in one go.</p>
+                        <p class="join-fee">Monthly training fee: ₹2,000</p>
+                    </div>
+                </div>
+
+                <div class="join-form-panel fade-in-scale">
+                    <form class="join-form" id="join-form" action="https://docs.google.com/forms/d/e/1FAIpQLSc90QaSCrcOvtihz5xJlWIX-Wo90cUQNlcJlgNF_7qm5MT8qA/formResponse" method="POST" target="hidden_iframe">
+                        <div class="join-form-grid">
+                            <label class="join-field join-field-wide">
+                                <span>Full Name of Athlete *</span>
+                                <input type="text" name="entry.722727860" required autocomplete="name" placeholder="Athlete name">
+                            </label>
+
+                            <label class="join-field">
+                                <span>Date of Birth *</span>
+                                <input type="date" id="join-dob" required>
+                                <input type="hidden" name="entry.771259408_year" id="join-dob-year">
+                                <input type="hidden" name="entry.771259408_month" id="join-dob-month">
+                                <input type="hidden" name="entry.771259408_day" id="join-dob-day">
+                            </label>
+
+                            <fieldset class="join-field join-field-wide join-fieldset">
+                                <legend>Gender *</legend>
+                                <div class="choice-grid choice-grid-compact">
+                                    <label class="choice-pill"><input type="radio" name="entry.16266000" value="Male" required><span>Male</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.16266000" value="Female"><span>Female</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.16266000" value="Other"><span>Other</span></label>
+                                </div>
+                            </fieldset>
+
+                            <label class="join-field">
+                                <span>Parent/Guardian Name *</span>
+                                <input type="text" name="entry.359956878" required autocomplete="name" placeholder="Guardian name">
+                            </label>
+
+                            <label class="join-field">
+                                <span>Area of Residence *</span>
+                                <input type="text" name="entry.1774443352" required placeholder="Locality / area">
+                            </label>
+
+                            <label class="join-field">
+                                <span>Parent/Guardian Whats App Number *</span>
+                                <input type="tel" name="entry.1302605552" required autocomplete="tel" inputmode="tel" placeholder="10-digit WhatsApp number">
+                            </label>
+
+                            <fieldset class="join-field join-field-wide join-fieldset">
+                                <legend>Preferred Track & Field Events *</legend>
+                                <div class="choice-grid">
+                                    <label class="choice-pill"><input type="radio" name="entry.231228376" value="Sprint (100m/200m)" required><span>Sprint</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.231228376" value="Middle Distance (400m/800m)"><span>Middle Distance</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.231228376" value="Long Distance (1500m & above)"><span>Long Distance</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.231228376" value="Long Jump/ Triple Jump/"><span>Long Jump / Triple Jump</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.231228376" value="High Jump"><span>High Jump</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.231228376" value="Shot Put"><span>Shot Put</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.231228376" value="Discuss Throw"><span>Discuss Throw</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.231228376" value="Relay"><span>Relay</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.231228376" value="Hurdles"><span>Hurdles</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.231228376" value="Marathons"><span>Marathons</span></label>
+                                    <label class="choice-pill"><input type="radio" name="entry.231228376" value="Not Sure Yet"><span>Not Sure Yet</span></label>
+                                </div>
+                            </fieldset>
+
+                            <label class="join-field join-field-wide">
+                                <span>Do you have any existing medical conditions or injuries? if yes mention *</span>
+                                <textarea name="entry.345614808" required rows="4" placeholder="Add details or write 'None'"></textarea>
+                            </label>
+
+                            <label class="join-consent join-field-wide">
+                                <input type="checkbox" name="entry.899296403" value="I hereby grant my consent for my child to enroll in the Athletics Club and to participate in all physical training activities conducted under qualified supervision. I also confirm my commitment to pay the monthly Athletics Club training fee of ₹2,000, which shall be paid within the first week of every month." required>
+                                <span>I hereby grant my consent for my child to enroll in the Athletics Club and to participate in all physical training activities conducted under qualified supervision. I also confirm my commitment to pay the monthly Athletics Club training fee of ₹2,000, which shall be paid within the first week of every month.</span>
+                            </label>
+
+                            <input type="hidden" name="fvv" value="1">
+                            <input type="hidden" name="pageHistory" value="0">
+                            <input type="hidden" name="partialResponse" value="[null,null,&quot;7102975455016443641&quot;]">
+                            <input type="hidden" name="fbzx" value="7102975455016443641">
+                            <input type="hidden" name="submissionTimestamp" value="-1">
+
+                            <div class="join-actions join-field-wide">
+                                <button type="submit" class="btn btn-primary btn-large" id="submit-btn">Submit Registration</button>
+                                <p class="join-help">Your registration details will be securely saved.</p>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Form Success Message Overlay -->
+                    <div class="form-success-overlay" id="form-success-overlay">
+                        <div class="success-message-content">
+                            <i class="ph-fill ph-check-circle success-icon"></i>
+                            <h3>Registration Submitted!</h3>
+                            <p>Thank you for enrolling in Ignite Athletics & Fitness Sports Club. We will get in touch with you on WhatsApp shortly.</p>
+                            <button class="btn btn-secondary mt-1" id="reset-form-btn">Submit Another</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hidden Iframe for Google Form Submission -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
     <!-- Footer / Contact -->
     <footer id="contact" class="footer">
         <div class="container">
@@ -207,9 +326,120 @@
             </div>
             <div class="footer-bottom text-center">
                 <p>&copy; 2026 Ignite Athletics & Fitness Sports Club. All rights reserved.</p>
+                <div class="footer-legal mt-1">
+                    <a href="#" class="legal-link" id="open-terms">Terms & Conditions</a>
+                    <span class="separator">|</span>
+                    <a href="#" class="legal-link" id="open-privacy">Privacy Policy</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Terms & Conditions Modal -->
+    <div class="modal-overlay" id="terms-modal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Terms & Conditions</h2>
+                <button class="modal-close" id="close-terms"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Welcome to Ignite Athletics and Fitness Sports Club. By accessing or using our website and services, you agree to these Terms & Conditions. Please read them carefully.</p>
+                
+                <div class="modal-section">
+                    <h3>— Use of Website</h3>
+                    <p>You agree to use our website only for lawful purposes related to sports coaching, training programs, events, and related services. You must not misuse the website for fraudulent activity, hacking, or spreading harmful content.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Registrations & Bookings</h3>
+                    <p>When registering for coaching programs, camps, or booking facilities, you must provide accurate and complete information. We reserve the right to cancel or refuse a booking if false or misleading details are provided. Payments (if applicable) must be made in advance as per our booking/payment policies.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Refunds & Cancellations</h3>
+                    <p>Fees once paid are generally non-refundable, except where explicitly mentioned (e.g., program cancellation from our side). Refunds, if applicable, will follow our internal policy communicated at the time of registration.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Intellectual Property</h3>
+                    <p>All content on this website, including logos, photos, videos, program descriptions, and materials, belongs to The Sports Gurukul unless otherwise stated. You may not copy, reproduce, or distribute our content without written permission.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Limitation of Liability</h3>
+                    <p>We aim to provide accurate and updated information but do not guarantee error-free or uninterrupted service. We are not liable for injuries, damages, or losses arising from misuse of information, sports activities, or third-party links on our website.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Changes to Terms</h3>
+                    <p>We may update or modify these Terms at any time. The latest version will always be available on this page.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Governing Law</h3>
+                    <p>These Terms are governed by the laws of India. Any disputes will fall under the jurisdiction of courts in Mumbai, India.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal-overlay" id="privacy-modal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Privacy Policy</h2>
+                <button class="modal-close" id="close-privacy"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">We at Ignite Athletics and Fitness Club respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what data we collect, how we use it, and your choices.</p>
+                
+                <div class="modal-section">
+                    <h3>— Information We Collect</h3>
+                    <p><strong>Personal Information:</strong> Name, email, phone, age, address, etc., when you register for coaching, programs, or events.</p>
+                    <p><strong>Payment Details:</strong> If you pay online, limited information necessary to process payments (through secure gateways).</p>
+                    <p><strong>Usage Data:</strong> Website visits, clicks, device info, and cookies for analytics.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— How We Use Your Information</h3>
+                    <p>To provide coaching programs, training schedules, and facility bookings.</p>
+                    <p>To process payments and send confirmations.</p>
+                    <p>To communicate updates, offers, or changes in programs.</p>
+                    <p>To improve our website, services, and user experience.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Sharing of Information</h3>
+                    <p>We may share your data with service providers (e.g., payment gateways, IT support) or legal authorities if required by law. We do not sell or trade your personal data to third parties.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Cookies</h3>
+                    <p>We use cookies to enhance website performance and personalize your experience. You can disable cookies in your browser settings, but some features may not work properly.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Data Security</h3>
+                    <p>We follow reasonable security measures to safeguard your data. However, no online platform can guarantee 100% security.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Your Rights</h3>
+                    <p>You can request to access, update, or delete your personal information by contacting us. You may also unsubscribe from promotional communications anytime.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Children’s Privacy</h3>
+                    <p>Our coaching services are for children with parental/guardian consent. We do not knowingly collect data from children without consent.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>— Changes to Policy</h3>
+                    <p>We may update this Privacy Policy from time to time. The latest version will always be posted here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

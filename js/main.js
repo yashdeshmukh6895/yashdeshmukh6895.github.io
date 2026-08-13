@@ -120,28 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Theme Switcher Logic
-    const themeBtns = document.querySelectorAll('.theme-btn');
-    
-    // Load saved theme
-    const savedTheme = localStorage.getItem('ignite-theme');
-    if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        themeBtns.forEach(btn => btn.classList.remove('active'));
-        const activeBtn = document.querySelector(`.theme-btn[data-set="${savedTheme}"]`);
-        if (activeBtn) activeBtn.classList.add('active');
-    }
-
-    themeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const theme = btn.getAttribute('data-set');
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('ignite-theme', theme);
-            
-            themeBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        });
-    });
+    // Reset theme settings and remove theme switcher logic
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.removeItem('ignite-theme');
 
     // Custom Cursor Logic
     const cursorDot = document.querySelector('.cursor-dot');
@@ -164,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Hover effect on clickable elements
-        const clickables = document.querySelectorAll('a, button, .value-card, .theme-btn');
+        const clickables = document.querySelectorAll('a, button, .value-card');
         clickables.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursorOutline.style.width = '60px';
@@ -176,6 +157,99 @@ document.addEventListener("DOMContentLoaded", () => {
                 cursorOutline.style.height = '40px';
                 cursorOutline.style.backgroundColor = 'transparent';
             });
+        });
+    }
+
+    // Join form date sync for Google Forms submission
+    const joinForm = document.getElementById('join-form');
+    const joinDob = document.getElementById('join-dob');
+    const joinDobYear = document.getElementById('join-dob-year');
+    const joinDobMonth = document.getElementById('join-dob-month');
+    const joinDobDay = document.getElementById('join-dob-day');
+    const formSuccessOverlay = document.getElementById('form-success-overlay');
+    const resetFormBtn = document.getElementById('reset-form-btn');
+    const hiddenIframe = document.getElementById('hidden_iframe');
+
+    if (joinForm && joinDob && joinDobYear && joinDobMonth && joinDobDay) {
+        const syncDateFields = () => {
+            if (!joinDob.value) {
+                joinDobYear.value = '';
+                joinDobMonth.value = '';
+                joinDobDay.value = '';
+                return;
+            }
+
+            const [year, month, day] = joinDob.value.split('-');
+            joinDobYear.value = year || '';
+            joinDobMonth.value = month || '';
+            joinDobDay.value = day || '';
+        };
+
+        joinDob.addEventListener('change', syncDateFields);
+        
+        let formSubmitted = false;
+        joinForm.addEventListener('submit', (e) => {
+            syncDateFields();
+            formSubmitted = true;
+            // The form will now submit to the hidden_iframe because of target="hidden_iframe"
+        });
+
+        // When the hidden iframe loads, check if it's following a form submission
+        if (hiddenIframe) {
+            hiddenIframe.addEventListener('load', () => {
+                if (formSubmitted) {
+                    formSuccessOverlay.classList.add('active');
+                    formSubmitted = false;
+                }
+            });
+        }
+
+        if (resetFormBtn) {
+            resetFormBtn.addEventListener('click', () => {
+                joinForm.reset();
+                formSuccessOverlay.classList.remove('active');
+            });
+        }
+    }
+
+    // Modal Toggles (Terms & Conditions, Privacy Policy)
+    const openTermsBtn = document.getElementById('open-terms');
+    const closeTermsBtn = document.getElementById('close-terms');
+    const termsModal = document.getElementById('terms-modal');
+
+    const openPrivacyBtn = document.getElementById('open-privacy');
+    const closePrivacyBtn = document.getElementById('close-privacy');
+    const privacyModal = document.getElementById('privacy-modal');
+
+    const toggleModal = (modal, action) => {
+        if (action === 'open') {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Disable page scroll
+        } else {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Enable page scroll
+        }
+    };
+
+    if (openTermsBtn && closeTermsBtn && termsModal) {
+        openTermsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleModal(termsModal, 'open');
+        });
+        closeTermsBtn.addEventListener('click', () => toggleModal(termsModal, 'close'));
+        termsModal.addEventListener('click', (e) => {
+            if (e.target === termsModal) toggleModal(termsModal, 'close');
+        });
+    }
+
+    if (openPrivacyBtn && closePrivacyBtn && privacyModal) {
+        openPrivacyBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleModal(privacyModal, 'open');
+        });
+        closePrivacyBtn.addEventListener('click', () => toggleModal(privacyModal, 'close'));
+        privacyModal.addEventListener('click', (e) => {
+            if (e.target === privacyModal) toggleModal(privacyModal, 'close');
         });
     }
 });
